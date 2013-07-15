@@ -21,7 +21,7 @@ class TransactionsController < ApplicationController
     # 交易成功同步返回地址
     @return_url = Settings.alipay.return_url
     @dualfun_pay.after_payment_redirect_url(@return_url)
-    @return_url = Settings.alipay.notify_url
+    @notify_url = Settings.alipay.notify_url
     @dualfun_pay.notification_callback_url(@notify_url)
 
     redirect_to @dualfun_pay.gateway_api_url
