@@ -12,11 +12,15 @@ class TransactionsController < ApplicationController
 
     @merchant = AlipayDualfun::Merchant.new(@partner_id, @key)
 
-    @order_id = '20140505' # 商家内部唯一订单编号
-    @subject = 'MyEp' # 订单标题
-    @description = 'hello' # 订单内容
+    @order_id = Time.now.to_i.to_s # 商家内部唯一订单编号
+    @subject = params[:subject].blank? ? 'A Donkey':params[:subject] # 订单标题
+    @description = params[:description].blank? ? 'Lovely':params[:description] # 订单内容
+
+    @price = params[:price].blank? ? '0.01':params[:price]
+    @quantity = params[:quantity].blank? ? '1':params[:quantity]
+
     @order = @merchant.create_order(@order_id, @subject, @description)
-    @dualfun_pay = @order.seller_email(@seller_email).no_logistics.set_price_and_quantity('2', '3').dualfun_pay
+    @dualfun_pay = @order.seller_email(@seller_email).no_logistics.set_price_and_quantity(@price, @quantity).dualfun_pay
 
     # 交易成功同步返回地址
     @return_url = Settings.alipay.return_url
