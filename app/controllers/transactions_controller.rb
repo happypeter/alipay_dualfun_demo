@@ -2,7 +2,7 @@
 class TransactionsController < ApplicationController
   def done
     if params[:trade_status] = 'TRADE_FINISHED'
-      transaction = Transacton.new(notify_id: params[:notify_id], total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], trade_status: params[:trade_status], notify_time: params[:notify_time])
+      transaction = Transaction.new(notify_id: params[:notify_id], total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], trade_status: params[:trade_status], notify_time: params[:notify_time])
       if transaction.save!
          flash[:notice] = "transaction done!"
       else

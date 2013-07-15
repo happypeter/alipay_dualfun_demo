@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @transactions = Transacton.all
+    @transactions = Transanction.all
   end
 end
