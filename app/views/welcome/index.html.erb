@@ -9,3 +9,9 @@
   <%= submit_tag("checkout") %>
 <% end %>
 
+
+<h2>transactions</h2>
+<%= @transactions.each do |t| %>
+  <%= t.out_trade_no %>
+  <br>
+<% end %>
