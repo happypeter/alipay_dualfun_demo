@@ -1,0 +1,11 @@
+<%= flash[:notice] %>
+
+
+<%= form_tag "/checkout" do %>
+  <%= label_tag(:price, "price") %>
+  <%= text_field_tag(:price) %>
+  <%= label_tag(:quantity, "quantity") %>
+  <%= text_field_tag(:quantity) %>
+  <%= submit_tag("checkout") %>
+<% end %>
+
