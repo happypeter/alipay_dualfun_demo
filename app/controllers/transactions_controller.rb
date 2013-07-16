@@ -16,6 +16,11 @@ class TransactionsController < ApplicationController
   end
 
   def notify
+    transaction = Transaction.find_by_out_trade_no(params[:out_trade_no])
+    if transaction.nil?
+      transaction = Transaction.new(notify_id: params[:notify_id], total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], trade_status: params[:trade_status], notify_time: params[:notify_time])
+      transaction.save
+    end
     notification = Notification.new(total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], notify_time: params[:notify_time])
     notification.save!
     render text: 'success'
