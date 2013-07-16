@@ -1,6 +1,5 @@
 <%= flash[:notice] %>
 
-
 <%= form_tag "/checkout" do %>
   <%= label_tag(:price, "price") %>
   <%= text_field_tag(:price) %>
@@ -11,7 +10,29 @@
 
 
 <h2>transactions</h2>
-<%= @transactions.each do |t| %>
-  <%= t.out_trade_no %>
-  <br>
-<% end %>
+<table>
+  <tr>
+    <th>
+      out_trade_no
+    </th>
+    <th>
+      total_fee
+    </th>
+    <th>
+      notify_time
+    </th>
+  </tr>
+  <% @transactions.each do |t| %>
+    <tr>
+      <td>
+        <%= t.out_trade_no %>
+      </td>
+      <td>
+        <%= t.total_fee %>
+      </td>
+      <td>
+        <%= t.notify_time %>
+      </td>
+    </tr>
+  <% end %>
+</table>
