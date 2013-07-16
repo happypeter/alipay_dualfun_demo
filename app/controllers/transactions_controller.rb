@@ -4,7 +4,7 @@ class TransactionsController < ApplicationController
 
   def create_transaction
     transaction = Transaction.find_by_out_trade_no(params[:out_trade_no])
-    if params[:trade_status] = 'TRADE_FINISHED' && transaction.nil?
+    if params[:trade_status] == 'TRADE_FINISHED' && transaction.nil?
       transaction = Transaction.new(notify_id: params[:notify_id], total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], trade_status: params[:trade_status], notify_time: params[:notify_time])
       transaction.save!
     end
