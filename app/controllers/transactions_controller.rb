@@ -15,6 +15,10 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def notify
+    render text: 'success'
+  end
+
   def checkout
     @partner_id = Settings.alipay.pid
     @key = Settings.alipay.secret
