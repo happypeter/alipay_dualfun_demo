@@ -1,26 +1,20 @@
 # coding: utf-8
 class TransactionsController < ApplicationController
-  def done
-    if params[:trade_status] = 'TRADE_FINISHED'
+  before_filter :create_transaction, :only => [:done, :notify]
+
+  def create_transaction
+    transaction = Transaction.find_by_out_trade_no(params[:out_trade_no])
+    if params[:trade_status] = 'TRADE_FINISHED' && transaction.nil?
       transaction = Transaction.new(notify_id: params[:notify_id], total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], trade_status: params[:trade_status], notify_time: params[:notify_time])
-      if transaction.save!
-         flash[:notice] = "transaction done!"
-      else
-         flash[:notice] = "something wrong while saving to db"
-      end
-      redirect_to :root
-    else
-      flash[:notice] = "transaction failed!"
-      redirect_to :root
+      transaction.save!
     end
+  end
+  def done
+    flash[:notice] = "transaction done!"
+    redirect_to :root
   end
 
   def notify
-    transaction = Transaction.find_by_out_trade_no(params[:out_trade_no])
-    if transaction.nil?
-      transaction = Transaction.new(notify_id: params[:notify_id], total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], trade_status: params[:trade_status], notify_time: params[:notify_time])
-      transaction.save
-    end
     notification = Notification.new(total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], notify_time: params[:notify_time])
     notification.save!
     render text: 'success'
