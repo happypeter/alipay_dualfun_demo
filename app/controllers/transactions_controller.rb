@@ -18,7 +18,7 @@ class TransactionsController < ApplicationController
   def notify
     notification = Notification.new(total_fee: params[:total_fee], out_trade_no: params[:out_trade_no], notify_time: params[:notify_time])
     notification.save!
-    render text: 'no-success'
+    render text: 'success'
   end
 
   def checkout
