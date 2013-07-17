@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130716014654) do
-
-  create_table "notifications", :force => true do |t|
-    t.string   "out_trade_no"
-    t.datetime "notify_time"
-    t.float    "total_fee"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130717030540) do
 
   create_table "transactions", :force => true do |t|
     t.string   "notify_id"

@@ -44,30 +44,3 @@
     </tr>
   <% end %>
 </table>
-<h2>notifications</h2>
-<table>
-  <tr>
-    <th>
-      out_trade_no
-    </th>
-    <th>
-      total_fee
-    </th>
-    <th>
-      notify_time
-    </th>
-  </tr>
-  <% @notifications.each do |t| %>
-    <tr>
-      <td>
-        <%= t.out_trade_no %>
-      </td>
-      <td>
-        <%= t.total_fee %>
-      </td>
-      <td>
-        <%= t.notify_time %>
-      </td>
-    </tr>
-  <% end %>
-</table>
