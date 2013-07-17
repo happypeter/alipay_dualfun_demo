@@ -1,12 +1,20 @@
+<h1>
+  支付宝双功能接口示范程序
+</h1>
+<p>
+  所有支付款项都将作为您对作者王广忠(happypeter)的爱心捐助 <%= link_to "Project", "https://github.com/happypeter/alipay_dualfun_demo" %>
+</p>
+
 <%= flash[:notice] %>
 
 <%= form_tag "/checkout" do %>
-  <%= label_tag(:price, "price") %>
+  <%= label_tag(:price, "商品价格(price)") %>
   <%= text_field_tag(:price) %>
-  <%= label_tag(:quantity, "quantity") %>
+  <%= label_tag(:quantity, "数量(quantity)") %>
   <%= text_field_tag(:quantity) %>
-  <%= submit_tag("checkout") %>
+  <%= submit_tag("去支付宝结账") %>
 <% end %>
+注意！到了支付宝页面，一定要选择“即时到账”，不支持“担保交易”
 
 
 <h2>transactions</h2>

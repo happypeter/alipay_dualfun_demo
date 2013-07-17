@@ -9,6 +9,7 @@ class TransactionsController < ApplicationController
       transaction.save!
     end
   end
+
   def done
     flash[:notice] = "transaction done!"
     redirect_to :root
