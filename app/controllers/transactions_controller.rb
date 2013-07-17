@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
   end
 
   def done
-    flash[:notice] = "transaction done!"
+    flash[:notice] = "付款成功啦!"
     redirect_to :root
   end
 

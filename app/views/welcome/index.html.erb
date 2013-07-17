@@ -5,7 +5,6 @@
   所有支付款项都将作为您对作者王广忠(happypeter)的爱心捐助 <%= link_to "Project", "https://github.com/happypeter/alipay_dualfun_demo" %>
 </p>
 
-<%= flash[:notice] %>
 
 <%= form_tag "/checkout" do %>
   <%= label_tag(:price, "商品价格(price)") %>
@@ -17,7 +16,8 @@
 注意！到了支付宝页面，一定要选择“即时到账”，不支持“担保交易”
 
 
-<h2>transactions</h2>
+<h2>交易记录(transactions)</h2>
+<%= flash[:notice] %>
 <table>
   <tr>
     <th>
@@ -30,7 +30,7 @@
       notify_time
     </th>
   </tr>
-  <% @transactions.each do |t| %>
+  <% @transactions.reverse.each do |t| %>
     <tr>
       <td>
         <%= t.out_trade_no %>
