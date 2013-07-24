@@ -1,8 +1,11 @@
 default: &default
   example: "www.example.com"
   alipay:
-    pid: '3688012372132975' # replace with your own
-    secret: '23xvu4bas1qk8nlc9vxw91e7kq975wu1'
+    pid: '2088012362185082' # replace with your own
+    secret: '68wvu4bas1qi8nlc8vxw91e7kq963wu4'
+    seller_email: "happycasts@gmail.com" # your alipay acount that you used to reigister the app
+    return_url: "http://alidemo.happycasts.net/transactions/done"
+    notify_url: "http://alidemo.happycasts.net/transactions/notify"
 
 production:
   <<: *default
