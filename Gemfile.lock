@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/happypeter/alipay_dualfun.git
+  revision: d613929e215a2c38d9a5c2e0b3a8f53e283b2d3e
+  specs:
+    alipay_dualfun (0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,7 +34,6 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
-    alipay_dualfun (0.1)
     arel (3.0.2)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -105,7 +110,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  alipay_dualfun
+  alipay_dualfun!
   coffee-rails (~> 3.2.1)
   jquery-rails
   mysql2
